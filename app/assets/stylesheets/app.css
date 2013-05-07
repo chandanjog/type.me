@@ -5,7 +5,11 @@ input.error{
 }
 
 body {
-  padding-top: 20px;
+
+}
+
+.container{
+    margin-top: 40px;
 }
 
 .quote .highlighted{
@@ -16,6 +20,12 @@ body {
 .quote{
     color: #808080;
     font-size: 2em;
+}
+
+input.user-entry{
+    width: 500px;
+    height: 30px;
+    font-size: 1.5em;
 }
 
 
