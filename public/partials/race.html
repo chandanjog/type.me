@@ -1,5 +1,14 @@
 <div>
-    <label>{{quote.text}}</label>
+    <div class="quote">
+
+        <span ng-repeat="word in quote.words" id="word_{{$index}}" ng-class="isHighlighted($index)">
+            {{word}}
+        </span>
+
+    </div>
+
+    <!--<label>{{quote.text}}</label>-->
+
     </br>
 
     <!--<label ng-bind='enteredText'></label>-->

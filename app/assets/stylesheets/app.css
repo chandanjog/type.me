@@ -8,3 +8,14 @@ body {
   padding-top: 20px;
 }
 
+.quote .highlighted{
+    color: green;
+    font-weight: bold;
+}
+
+.quote{
+    color: #808080;
+    font-size: 2em;
+}
+
+

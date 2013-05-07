@@ -22,25 +22,26 @@ speedRacer.directive('textEntry', function () {
                 element = this;
 
                 console.log("::::::::::::::");
-                console.log(sprintf("highligted word: '%s'",scope.quote.words[scope.quote.higlighted]));
+                console.log(sprintf("highligted word: '%s'",scope.quote.words[scope.quote.highlighted]));
                 console.log("input entered so far::" + element.value);
                 for (var i = 0; i < element.value.length; i++) {
                     console.log("-------------");
-                    console.log("highligted: " + scope.quote.words[scope.quote.higlighted][i]);
+                    console.log("highligted: " + scope.quote.words[scope.quote.highlighted][i]);
                     console.log("input ::" + element.value[i]);
 
-                    if (scope.quote.words[scope.quote.higlighted].indexOf(element.value) !== 0 ) {
+                    if (scope.quote.words[scope.quote.highlighted].indexOf(element.value) !== 0 ) {
                         element.className = 'error';
                     } else {
                         element.className = "";
-                        if (element.value === scope.quote.words[scope.quote.higlighted]) {
-                            scope.quote.higlighted = scope.quote.higlighted + 1;
+                        if (element.value === scope.quote.words[scope.quote.highlighted]) {
+                            scope.quote.words = [1,3];
+                            scope.quote.highlighted = scope.quote.highlighted + 1;
                             element.value = "";
                         }
                     }
                 }
 
-                if(scope.quote.words.length === scope.quote.higlighted){
+                if(scope.quote.words.length === scope.quote.highlighted){
                     jQuery(element).hide();
                 }
 

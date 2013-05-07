@@ -14,9 +14,17 @@ function RaceCtrl($scope) {
 
         return {
             words: processed_words,
-            higlighted: 0,
+            highlighted: 0,
             text: text
         };
     }();
+
+    $scope.isHighlighted = function(index){
+        if(index == $scope.quote.highlighted)
+            return "highlighted";
+        return "";
+    }
+
+
 }
 
