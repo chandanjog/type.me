@@ -1,0 +1,20 @@
+Build the typing logic with error handling.
+  calculate the speed
+Logic to pull quotes, text, tweets, etc
+Multipe users in one game
+Facebook/twitter login. Invite friends online
+Personalisation
+Stats
+Mobile
+Hook up ads
+
+POC implementations:
+  Timer
+  Visualisation: progress of players in a game, stats etc d3 js
+  Profiling code
+  DB stores: redis, mongo, mysql
+  deployment:
+    capistrano
+    AWS
+    Puppet
+    Vagrant

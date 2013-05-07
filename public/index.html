@@ -2,14 +2,32 @@
 <html lang="en" ng-app="speed-racer">
 <head>
     <meta charset="utf-8">
-    <title>Google Phone Gallery</title>
+    <title>Touch Type In</title>
     <link rel="stylesheet" href="/assets/application.css">
-
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <script src="/assets/application.js"></script>
 </head>
 <body>
 
-<div ng-view></div>
+
+<div class="wrap">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="logo" href="#"></a>
+                <div class="nav-collapse collapse">
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="container">
+            <div ng-view></div>
+        </div>
+
+        <div class="footer">
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
