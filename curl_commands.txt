@@ -1,0 +1,21 @@
+curl http://localhost:3000/race/new?user_id=foo -i
+
+curl http://localhost:3000/race/new?user_id=bar -i
+
+curl -X PUT -d "user_id=foo&progress=20" http://localhost:3000/race/1 -i
+
+curl -i http://localhost:3000/race/4
+
+
+
+Storage needs:
+
+races -> active, finished, blurb, participants and progress, total races so far etc
+users -> login, races_won, speed, races_participated, country etc etc
+
+querying needs:
+
+race by id
+race counter
+
+

@@ -5,16 +5,21 @@ Multipe users in one game
 Facebook/twitter login. Invite friends online
 Personalisation
 Stats
-Mobile
+Mobile - responsive, phonegap/titanium based app for android/iphone.
 Hook up ads
+Multiple game formats
+   Multiple blurbs - twitter, amazon, gists etc
+
 
 POC implementations:
   Timer
   Visualisation: progress of players in a game, stats etc d3 js
   Profiling code
-  DB stores: redis, mongo, mysql
+  DB stores: redis, mongo, mysql?
+  Threads
   deployment:
     capistrano
     AWS
     Puppet
     Vagrant
+  Machine learning: tell users their mistakes from keystrokes typed
