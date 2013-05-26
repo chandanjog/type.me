@@ -34,7 +34,6 @@ class Races
       end
     end
 
-
   end
 
 end

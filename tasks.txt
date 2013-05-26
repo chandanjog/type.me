@@ -1,10 +1,15 @@
 Build the typing logic with error handling.
   calculate the speed
 Multiple users in one game
+ backend apis
+ hook to frontend
+ generate bots for empty games
 Logic to pull quotes, text, tweets, etc
-Facebook/twitter login. Invite friends online
+Facebook/twitter login. Invite friends online - storage in mongo
+Styling: website and racing stats.
+push to heroku, hook up dns
+
 Personalisation
-Stats
 Mobile - responsive, phonegap/titanium based app for android/iphone.
 Hook up ads
 Multiple game formats
@@ -30,8 +35,9 @@ POC implementations/Learnings/Goals:
     Alerting on failure etc.
     logging for errors.
   DB stores::
-    redis, mongo, mysql?
+    redis, mongo, mysql? http://www.slideshare.net/juokaz/choosing-the-right-nosql-database-4developers
     Algorithms and Data Structures(Data modelling)
+    DB indexing(secondary+composite)
   Deployment(CD):
     capistrano
     AWS
@@ -52,6 +58,7 @@ POC implementations/Learnings/Goals:
     Consuming API's from different sources
   Mobile responsive
   Canvas: Create fighter plane type word game. Game development
+  WebSockets: pull(http) vs pusher
   Languages::
     Ruby, Javascript expertise
     text manipulation: regex etc

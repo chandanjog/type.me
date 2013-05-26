@@ -118,7 +118,6 @@ describe RaceController do
     it :should_return_404_when_race_does_not_exist do
       get :show, :id => 1
 
-      expect(response).to be_success
       expect(response.status).to eq(404)
     end
 
