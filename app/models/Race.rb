@@ -1,7 +1,6 @@
 class Race
 
   module Status
-    AWAITING_PLAYERS = 0
     ACTIVE = 1
     COMPLETE = 2
   end
@@ -11,7 +10,7 @@ class Race
   def initialize hash=nil
     if hash.nil?
       @id = get_id
-      @status = Status::AWAITING_PLAYERS
+      @status = Status::ACTIVE
       @participants = {}
       @created_at = DateTime.now
       @text = "Get well soon! ;:" #TODO: Fetch from an external api
@@ -28,6 +27,17 @@ class Race
     @participants[user_id] = { :progress => 0 }
   end
 
+  def available_to_join
+    @participants.count < configatron.race.max_participants.to_i &&
+    time_elapsed_since_creation_in_seconds < configatron.race.available.to.join.for.in.seconds.to_i
+  end
+
+  def time_elapsed_since_creation_in_seconds
+    time_difference = (DateTime.now - DateTime.parse(@created_at))
+    Rails.logger.info "******** Time difference :: #{time_difference}"
+    Rails.logger.info "******** Time difference in seconds :: #{(time_difference * 24 * 60 * 60).to_i}"
+    (time_difference * 24 * 60 * 60).to_i
+  end
 
   private
 

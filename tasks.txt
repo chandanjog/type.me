@@ -1,25 +1,67 @@
 Build the typing logic with error handling.
   calculate the speed
+Multiple users in one game
 Logic to pull quotes, text, tweets, etc
-Multipe users in one game
 Facebook/twitter login. Invite friends online
 Personalisation
 Stats
 Mobile - responsive, phonegap/titanium based app for android/iphone.
 Hook up ads
 Multiple game formats
-   Multiple blurbs - twitter, amazon, gists etc
+   Multiple blurbs - twitter, amazon, gists, Idea(VIM) keyboard shorcut practice etc
+Camera: to watch eye movement to see if touch typing or watching keyboard.
 
 
-POC implementations:
+POC implementations/Learnings/Goals:
   Timer
-  Visualisation: progress of players in a game, stats etc d3 js
-  Profiling code
-  DB stores: redis, mongo, mysql?
-  Threads
-  deployment:
+  Visualisation::
+    progress of players in a game, stats etc d3 js
+  Profiling code for measuring performance and optimisation::
+    Concurrency using threads vs process vs events
+    Functional style programming etc
+    compression, size/bandwidth related.
+    sinatra vs rails vs node.js
+    static vs dynamic code analysis.
+  Performance Testing::
+    apache bench vs locust vs jmeter
+    blitz.io
+    http://www.mnot.net/blog/2011/05/18/http_benchmark_rules
+  Monitoring::
+    Alerting on failure etc.
+    logging for errors.
+  DB stores::
+    redis, mongo, mysql?
+    Algorithms and Data Structures(Data modelling)
+  Deployment(CD):
     capistrano
     AWS
     Puppet
     Vagrant
-  Machine learning: tell users their mistakes from keystrokes typed
+    DNS, CDN etc
+    Shell scripting
+    Heroku
+  Data Analysis::
+      Machine learning::
+        Tell users their mistakes from keystrokes typed
+      Statistics::
+        Users from different countries.
+        Log analysis etc
+  Service Design::
+    Restful services, micor services etc
+    API throttling, caching, reverse proxying, web caching etc etc
+    Consuming API's from different sources
+  Mobile responsive
+  Canvas: Create fighter plane type word game. Game development
+  Languages::
+    Ruby, Javascript expertise
+    text manipulation: regex etc
+    searching: full-text, NLP etc
+  Git Mastery::
+  Design::
+    SOLID
+
+
+
+
+
+

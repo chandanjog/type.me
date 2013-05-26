@@ -2,11 +2,14 @@ class RaceController < ApplicationController
 
     #GET
     def new
-        race = find_or_create_an_available_race()
+        # Need to investigate stale parameter printing while logging for tests
+        Rails.logger.info "********* user_id :: #{params[:user_id]}"
+
         return head :status => 404 if params[:user_id].blank?
+        race = find_or_create_an_available_race()
         race.add_participant(params[:user_id])
         Races.add_or_update(race)
-        return render :json =>race
+        render :json =>race
     end
 
     #PUT

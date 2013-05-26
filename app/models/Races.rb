@@ -18,19 +18,15 @@ class Races
 
     def find_by_id id
       all.find do |race|
-        puts race.inspect
         race.id == id
       end
     end
 
     def find_available_race
       all.find do |race|
-        #debugger
-        race.status == Race::Status::AWAITING_PLAYERS && race.participants.count < configatron.race.max_participants.to_i
+        race.available_to_join
       end
     end
-
-    private
 
     def all
       $redis.smembers(KEY).map do |race|
