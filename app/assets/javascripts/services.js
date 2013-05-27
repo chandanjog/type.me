@@ -1,6 +1,6 @@
 var speedRacerServices = angular.module('services', ['ngResource'])
 
-speedRacerServices.factory('Race', function($resource) {
+speedRacerServices.factory('Race',['$resource', function($resource) {
     return $resource('/race/:id',
                     {id: '@id'},
                     {
@@ -8,4 +8,4 @@ speedRacerServices.factory('Race', function($resource) {
                         new: { method: 'GET', params: {id: 'new'}}
                     }
     );
-});
+}]);
