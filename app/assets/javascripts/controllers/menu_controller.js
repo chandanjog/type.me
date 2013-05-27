@@ -1,7 +1,6 @@
-speedRacercontrollers.controller('MenuCtrl', function($scope, $resource){
-    $scope.joinRace = function(){
-
-    }
+speedRacercontrollers.controller('MenuCtrl', function($scope){
 });
+
+MenuCtrl.$inject = ['$scope'];
 
 

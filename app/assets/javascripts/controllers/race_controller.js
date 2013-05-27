@@ -102,3 +102,4 @@ speedRacercontrollers.controller('RaceCtrl', function($scope, Race){
 
 })
 
+RaceCtrl.$inject = ['$scope', Race];
