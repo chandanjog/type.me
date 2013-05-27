@@ -11,8 +11,12 @@ Multiple users in one game
             background job to prepare a queue of available races to join - use pub/sub
         An endpoint for user stats.
     hook to frontend
+        the timeinterval to wait before allowing user needs to be corrected. - done
         seems to mark correct typing as a mistake
-        the timeinterval to wait before allowing user needs to be corrected.
+        position of a player in a race
+        calculate and update player speed on UI and post the backend for a user.
+        Kill, mark complete a race if inactive beyond a time
+
 Logic to pull quotes, text, tweets, etc
 Facebook/twitter login. Invite friends online - storage in mongo
 Styling: website and racing stats.

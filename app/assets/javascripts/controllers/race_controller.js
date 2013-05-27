@@ -5,13 +5,18 @@ function updateProgressAndRenderLatestStats($scope, Race, race){
                         id: race.id,
                         user_id: userId,
                         progress: getProgress($scope)
-                    }, function(response){
+                    },
+        function(response){
             $scope.participants = response.participants;
+            if(response.status === "COMPLETE"){
+                clearInterval($scope.timer_id);
+            }
         });
+
         if(getProgress($scope) === 100){
             Race.update({id: race.id, user_id: userId, progress: getProgress($scope), status: "COMPLETE"})
-            clearInterval($scope.timer_id);
         }
+
     },1000);
 }
 
@@ -19,6 +24,10 @@ function getProgress($scope){
     return ($scope.quote.highlighted/$scope.quote.words.length)*100;
 }
 
+function timeToWaitInMillisecondsForEnablingTheRace(race){
+    var diff = new Date().getTime() - Date.parse(race.created_at);
+    return (race.race_available_to_join_for_in_seconds * 1000) - diff;
+}
 
 speedRacercontrollers.controller('RaceCtrl', function($scope, Race){
 
@@ -26,11 +35,12 @@ speedRacercontrollers.controller('RaceCtrl', function($scope, Race){
         var race = response;
 
         setTimeout(function(){
-            $(".user-entry").removeAttr('disabled');
             $(".start").remove();
             $("#stats .loader").remove();
             updateProgressAndRenderLatestStats($scope, Race, race);
-        }, parseInt(race.race_available_to_join_for_in_seconds) * 1000);
+
+            $(".user-entry").removeAttr('disabled').focus();
+        }, timeToWaitInMillisecondsForEnablingTheRace(race));
 
         $scope.quote = function(){
             var words = race.text.split(' ');

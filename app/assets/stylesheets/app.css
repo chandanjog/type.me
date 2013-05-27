@@ -29,3 +29,20 @@ input.user-entry{
 }
 
 
+.quote .word{
+    margin: 5px;
+    display: inline-block;
+}
+
+.waiting{
+    /*margin-bottom: 20px;*/
+}
+
+.waiting .start{
+    display: inline;
+    padding: 20px;
+    margin: 20px;
+}
+.waiting .loader{
+    display: inline;
+}

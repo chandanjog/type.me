@@ -1,6 +1,9 @@
 <div id="stats" class="well">
-    <img src="/assets/loader.gif" class="loader">
-    <label class="start alert alert-info">Waiting for players to join the race.</label>
+    <div class="waiting">
+        <img src="/assets/loader.gif" class="loader">
+        <label class="start alert alert-info">Waiting for players to join the race.</label>
+    </div>
+
     <div ng-repeat="(user_id,value) in participants">
         {{user_id}}
         <div class="progress progress-striped active">
@@ -13,7 +16,7 @@
 <div id="typing-section">
     <div class="quote">
 
-        <span ng-repeat="word in quote.words" id="word_{{$index}}" ng-class="isHighlighted($index)">
+        <span class="word" ng-repeat="word in quote.words" id="word_{{$index}}" ng-class="isHighlighted($index)">
             {{word}}
         </span>
 
