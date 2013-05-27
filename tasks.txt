@@ -11,6 +11,8 @@ Multiple users in one game
             background job to prepare a queue of available races to join - use pub/sub
         An endpoint for user stats.
     hook to frontend
+        seems to mark correct typing as a mistake
+        the timeinterval to wait before allowing user needs to be corrected.
 Logic to pull quotes, text, tweets, etc
 Facebook/twitter login. Invite friends online - storage in mongo
 Styling: website and racing stats.

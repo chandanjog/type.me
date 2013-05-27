@@ -1,1 +1,1 @@
-var speedRacercontrollers = angular.module('speed-racer.controllers',['ngResource']);
+var speedRacercontrollers = angular.module('controllers',['services']);

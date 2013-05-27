@@ -16,6 +16,7 @@
 //= require underscore.js
 //= require sprintf.js
 //= require app.js
+//= require services.js
 //= require controllers/module.js
 
 

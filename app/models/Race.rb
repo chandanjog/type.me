@@ -13,14 +13,14 @@ class Race
     @participants = hash["participants"].nil? ? {} : hash["participants"]
     @created_at = hash["created_at"].nil? ? DateTime.now : hash["created_at"]
     @text = hash["text"].nil? ? Quote.text : hash["text"] #TODO: Fetch from an external api
-    @guest_counter = hash["guest_counter"].nil? ? 1 : hash["guest_counter"]
+    @guest_counter = hash["guest_counter"].nil? ? 0 : hash["guest_counter"]
     @race_available_to_join_for_in_seconds = configatron.race.available.to.join.for.in.seconds.to_i
   end
 
   def add_participant(user_id)
     if user_id.blank?
-      @participants["guest_#{@guest_counter}"] = {:progress => 0}
       @guest_counter=@guest_counter + 1
+      @participants["guest_#{@guest_counter}"] = {:progress => 0}
     else
       @participants[user_id] = {:progress => 0}
     end

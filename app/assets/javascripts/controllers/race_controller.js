@@ -1,28 +1,55 @@
-speedRacercontrollers.controller('RaceCtrl', function($scope, $resource){
+function updateProgressAndRenderLatestStats($scope, Race, race){
+    $scope.timer_id = setInterval(function(){
+        var userId = sprintf("guest_%s", race.guest_counter.toString());
+        Race.update({
+                        id: race.id,
+                        user_id: userId,
+                        progress: getProgress($scope)
+                    }, function(response){
+            $scope.participants = response.participants;
+        });
+        if(getProgress($scope) === 100){
+            Race.update({id: race.id, user_id: userId, progress: getProgress($scope), status: "COMPLETE"})
+            clearInterval($scope.timer_id);
+        }
+    },1000);
+}
 
-    $scope.quote = function(){
-        var race = $resource('/race/new');
-        console.log(race.query());
+function getProgress($scope){
+    return ($scope.quote.highlighted/$scope.quote.words.length)*100;
+}
 
 
+speedRacercontrollers.controller('RaceCtrl', function($scope, Race){
 
-        var text="hello how are you doing ; my old friend?"
-        var words = text.split(' ');
-        var processed_words = [];
+    Race.new(function(response){
+        var race = response;
 
-        _.each(words, function(element, index){
-            if(index === (words.length - 1))
-                processed_words.push(element);
-            else
-                processed_words.push(element.concat(" "));
-        })
+        setTimeout(function(){
+            $(".user-entry").removeAttr('disabled');
+            $(".start").remove();
+            $("#stats .loader").remove();
+            updateProgressAndRenderLatestStats($scope, Race, race);
+        }, parseInt(race.race_available_to_join_for_in_seconds) * 1000);
 
-        return {
-            words: processed_words,
-            highlighted: 0,
-            text: text
-        };
-    }();
+        $scope.quote = function(){
+            var words = race.text.split(' ');
+            var processed_words = [];
+            _.each(words, function(element, index){
+                if(index === (words.length - 1))
+                    processed_words.push(element);
+                else
+                    processed_words.push(element.concat(" "));
+            })
+            return {
+                words: processed_words,
+                highlighted: 0,
+                text: race.text
+            };
+        }();
+
+    });
+
 
     $scope.isHighlighted = function(index){
         if(index == $scope.quote.highlighted)

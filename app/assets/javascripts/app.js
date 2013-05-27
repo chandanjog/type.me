@@ -2,7 +2,7 @@
 
 /* App Module */
 
-var speedRacer = angular.module('speed-racer', ['speed-racer.controllers']);
+var speedRacer = angular.module('speed-racer', ['controllers']);
 
 speedRacer.
     config(['$routeProvider', function ($routeProvider) {
