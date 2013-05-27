@@ -10,9 +10,25 @@ describe RaceController do
 
   context "GET #new"  do
 
-    it :should_return_404_when_user_id_is_null_or_empty do
+    it :should_provide_guest_id_when_user_id_is_null_or_empty do
       get :new
-      expect(response.status).to eq(404)
+
+      expect(response).to be_success
+      expect(response.status).to eq(200)
+
+      body = OpenStruct.new(JSON.parse(response.body))
+      expect(body.participants.keys.size).to eq(1)
+      expect(body.participants.keys).to include("guest_1")
+
+      get :new
+
+      expect(response).to be_success
+      expect(response.status).to eq(200)
+
+      body = OpenStruct.new(JSON.parse(response.body))
+      expect(body.participants.keys.size).to eq(2)
+      expect(body.participants.keys).to include("guest_2")
+
     end
 
     it :should_create_a_new_race_for_the_player_when_no_race_is_available_to_join do
@@ -77,6 +93,22 @@ describe RaceController do
 
     end
 
+    it :should_return_a_race_with_following_attributes do
+      get :new
+
+      expect(response).to be_success
+      expect(response.status).to eq(200)
+
+      body = OpenStruct.new(JSON.parse(response.body))
+      expect(body.race_available_to_join_for_in_seconds).to_not be_nil
+      expect(body.id).to_not be_nil
+      expect(body.status).to_not be_nil
+      expect(body.participants).to_not be_nil
+      expect(body.created_at).to_not be_nil
+      expect(body.text).to_not be_nil
+      expect(body.guest_counter).to_not be_nil
+    end
+
   end
 
   context "PUT #update" do
@@ -99,18 +131,18 @@ describe RaceController do
       expect(response.status).to eq(404)
     end
 
-    it :should_update_the_race_with_user_progress do
+    it :should_update_the_race_with_user_progress_and_status do
       get :new, user_id: "foo"
       body = OpenStruct.new(JSON.parse(response.body))
       expect(body.participants["foo"]).to eq({ "progress" => 0})
+      expect(body.status).to eq(Race::Status::ACTIVE)
 
-      put :update, {:id => 1, :user_id => "foo", :progress => 20}
+      put :update, {:id => 1, :user_id => "foo", :progress => 20, :status => Race::Status::COMPLETE}
       expect(response).to be_success
       expect(response.status).to eq(200)
-
-      get :show, :id => 1
       body = OpenStruct.new(JSON.parse(response.body))
       expect(body.participants["foo"]).to eq({ "progress" => "20"})
+      expect(body.status).to eq(Race::Status::COMPLETE.to_s)
     end
   end
 

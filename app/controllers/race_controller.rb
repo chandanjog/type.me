@@ -4,12 +4,10 @@ class RaceController < ApplicationController
     def new
         # Need to investigate stale parameter printing while logging for tests
         Rails.logger.info "********* user_id :: #{params[:user_id]}"
-
-        return head :status => 404 if params[:user_id].blank?
         race = Races.find_available_race || Race.new()
         race.add_participant(params[:user_id])
         Races.add_or_update(race)
-        render :json =>race
+        render :json => race
     end
 
     #PUT
@@ -17,9 +15,12 @@ class RaceController < ApplicationController
       race = Races.find_by_id params[:id]
       return head :status => 404 if race.nil?
       return head :status => 404 if params[:user_id].blank? || params[:progress].blank?
-      race.participants[params[:user_id]] = {:progress => params[:progress]}
+
+      race.status = params[:status] if !params[:status].blank?
+      race.update_participant(params[:user_id],params[:progress])
       Races.add_or_update(race)
-      head 200
+
+      render :json => race
     end
 
     #GET

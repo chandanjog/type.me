@@ -1,20 +1,39 @@
 Build the typing logic with error handling.
-  calculate the speed
+    calculate the speed
 Multiple users in one game
- backend apis
- hook to frontend
- generate bots for empty games
+    backend apis
+        generate guest id's for a race if user_id not provided. - done
+        return available to join time in response. -done
+        return updated race details in response. -done
+        change the status of games when completed.(accept in update) -done
+        generate bots for empty games
+        Correct the redis modelling for storing and retrieving a race after profiling the app. Currently non-performing hacky code.
+            background job to prepare a queue of available races to join - use pub/sub
+        An endpoint for user stats.
+    hook to frontend
 Logic to pull quotes, text, tweets, etc
 Facebook/twitter login. Invite friends online - storage in mongo
 Styling: website and racing stats.
 push to heroku, hook up dns
-
-Personalisation
-Mobile - responsive, phonegap/titanium based app for android/iphone.
+Hook up with social sites, fb like share, twitter like share
 Hook up ads
+Fix RVM
+
+Ideas:
+Mobile - responsive, phonegap/titanium based app for android/iphone.
+chat server
+Personalisation
 Multiple game formats
-   Multiple blurbs - twitter, amazon, gists, Idea(VIM) keyboard shorcut practice etc
+Multiple blurbs - twitter, amazon, gists, Idea(VIM) keyboard shorcut practice etc
 Camera: to watch eye movement to see if touch typing or watching keyboard.
+Multiple language support - spanish, french, hindi etc
+    Inspiration from duolingo, recaptcha etc
+http://www.seanwrona.com/typeracer/community.php
+http://multiplayerblog.mtv.com/2008/05/08/the-story-behind-the-addictive-web-game-typeracer-a-competitive-mavis-beacon/
+http://en.wikipedia.org/wiki/TypeRacer
+https://gist.github.com/feross/1936829
+http://www.nitrotype.com/race/
+
 
 
 POC implementations/Learnings/Goals:
@@ -66,6 +85,9 @@ POC implementations/Learnings/Goals:
   Git Mastery::
   Design::
     SOLID
+  Messaging: rabbitmq, zeromq etc, interprocess communication
+  Chat servers:
+    xmpp
 
 
 

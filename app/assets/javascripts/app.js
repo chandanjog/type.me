@@ -2,12 +2,13 @@
 
 /* App Module */
 
-var speedRacer = angular.module('speed-racer', []);
+var speedRacer = angular.module('speed-racer', ['ngResource']);
 
 speedRacer.
     config(['$routeProvider', function ($routeProvider) {
     $routeProvider.
         when('/race', { templateUrl:'partials/race.html', controller:RaceCtrl}).
-        otherwise({redirectTo:'/race'});
+        when('/menu', { templateUrl:'partials/menu.html', controller:MenuCtrl}).
+        otherwise({redirectTo:'/menu'});
 }]);
 

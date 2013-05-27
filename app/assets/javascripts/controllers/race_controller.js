@@ -1,5 +1,7 @@
 function RaceCtrl($scope) {
     $scope.quote = function(){
+//        $resource('/race/new?user_id=foo')
+
 
         var text="hello how are you doing ; my old friend?"
         var words = text.split(' ');
