@@ -1,6 +1,6 @@
-speedRacercontrollers.controller('MenuCtrl', function($scope){
-});
+speedRacercontrollers.controller('MenuCtrl', [ '$scope', function($scope){
 
-MenuCtrl.$inject = ['$scope'];
+}]);
+
 
 

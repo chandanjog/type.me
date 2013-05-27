@@ -29,7 +29,7 @@ function timeToWaitInMillisecondsForEnablingTheRace(race){
     return (race.race_available_to_join_for_in_seconds * 1000) - diff;
 }
 
-speedRacercontrollers.controller('RaceCtrl', function($scope, Race){
+speedRacercontrollers.controller('RaceCtrl',[ '$scope', 'Race', function($scope, Race){
 
     Race.new(function(response){
         var race = response;
@@ -100,6 +100,4 @@ speedRacercontrollers.controller('RaceCtrl', function($scope, Race){
 
     });
 
-})
-
-RaceCtrl.$inject = ['$scope', Race];
+}]);
