@@ -24,6 +24,7 @@ push to heroku, hook up dns
 Hook up with social sites, fb like share, twitter like share
 Hook up ads
 Fix RVM
+Feedback, Contact
 
 Ideas:
 Mobile - responsive, phonegap/titanium based app for android/iphone.

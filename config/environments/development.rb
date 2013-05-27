@@ -34,5 +34,5 @@ TypeMe::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
-  config.cache_store = :mem_cache_store
+  config.cache_store = :null_store
 end

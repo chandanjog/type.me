@@ -8,8 +8,6 @@ gem 'rails', '3.2.11'
 gem 'sqlite3'
 gem 'redis'
 gem 'json'
-gem 'memcached'
-gem 'memcache-client'
 gem 'debugger'
 gem 'configatron'
 
