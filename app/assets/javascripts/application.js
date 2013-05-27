@@ -16,4 +16,7 @@
 //= require underscore.js
 //= require sprintf.js
 //= require app.js
+//= require controllers/module.js
+
+
 //= require_tree .

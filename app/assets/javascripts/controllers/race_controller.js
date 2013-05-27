@@ -1,6 +1,9 @@
-function RaceCtrl($scope) {
+speedRacercontrollers.controller('RaceCtrl', function($scope, $resource){
+
     $scope.quote = function(){
-//        $resource('/race/new?user_id=foo')
+        var race = $resource('/race/new');
+        console.log(race.query());
+
 
 
         var text="hello how are you doing ; my old friend?"
@@ -60,5 +63,5 @@ function RaceCtrl($scope) {
 
     });
 
-}
+})
 
