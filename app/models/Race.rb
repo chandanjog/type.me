@@ -1,8 +1,8 @@
 class Race
 
   module Status
-    ACTIVE = 1
-    COMPLETE = 2
+    ACTIVE = "ACTIVE"
+    COMPLETE = "COMPLETE"
   end
 
   attr_accessor :id, :status, :participants, :created_at, :winner, :text, :guest_counter
