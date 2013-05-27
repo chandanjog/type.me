@@ -37,5 +37,5 @@ TypeMe::Application.configure do
   #config.cache_store = :null_store
 end
 
-ENV["REDISTOGO_URL"] = "redis://redistogo:f9bfe3d00e9b6f55c71601f24cdc021c@cod.redistogo.com:9067/"
+ENV["REDISTOGO_URL"] = "redis://redistogo:f9bfe3d00e9b6f55c71601f24cdc021c@cod.redistogo.com:9067"
 #ENV["REDISTOGO_URL"] = "redis://localhost:6379/"
